@@ -24,10 +24,46 @@ Proyek ini akan mengembangkan dua jenis model rekomendasi:
 Kedua pendekatan ini akan diintegrasikan untuk memberikan rekomendasi yang lebih akurat dan sesuai.
 
 ## Data Understanding
-Data yang digunakan meliputi:
-- **Destinasi wisata**: Data tentang destinasi wisata seperti nama, deskripsi, lokasi, rating, jenis wisata (alam, budaya, kuliner, dll).
-- **Pengguna**: Data tentang pengguna yang mencakup preferensi, rating destinasi yang pernah dikunjungi, dan riwayat interaksi.
-- **Interaksi**: Data interaksi antara pengguna dan destinasi wisata, misalnya rating atau ulasan yang diberikan.
+Dataset yang digunakan dalam pengembangan proyek ini adalah tourism_with_id.csv dan tourism_rating.csv
+
+tourism_with_id.csv
+1. Place_Id : Id destinasi wisata
+2. Place_Name : Nama destinasi wisata
+3. Description : Deskripsi destinasi wisata
+4. Category : Kategori destinasi wisata
+5. City : Kota destinasi wisata 
+6. Price : Harga destinasi wisata
+7. Rating : Penilaian Secara Umum destinasi wisata
+8. Time_Minutes : Waktu dalam menit
+9. Coordinate: Koordinat destinasi wisata
+10. Lat : Ketinggain destinasi wisata
+11. Long : Posisi bujur dalam destinasi wisata
+12. Unnamed: 11 : Tidak diketahui
+13. Unnamed: 12 : Tidak diketahui
+    
+Link Dataset : https://www.kaggle.com/datasets/aprabowo/indonesia-tourism-destination?select=tourism_with_id.csv
+
+tourism_rating.csv
+1. User_Id : Id user yang me-rating
+2. Place_Id : Id destinasi wisata
+3. Place_Ratings : Rating yang diberikan user
+
+Link Dataset : https://www.kaggle.com/datasets/aprabowo/indonesia-tourism-destination?select=tourism_rating.csv
+
+Kondisi kedua dataset :
+- Belum terintegrasi dan masih terpisah
+- Terdapat data yang duplikat
+
+Sehingga dataset akhir yang digunakan menjadi:
+1. id : Id destinasi wisata
+2. name : Nama destinasi wisata
+3. description	: Deskripsi destinasi wisata
+4. city : Kota destinasi wisata
+5. category: Kategori destinasi wisata
+6. city_category : Kombinasi kota dan kategori
+7. price : Harga masuk destinasi wisata
+
+dimana atribut city_category adalah atribut yang dilihat kemiripannya untuk contet destinasi wisata.
 
 ## Exploratory Data Analysis (EDA)
 EDA akan dilakukan untuk:
