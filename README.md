@@ -81,16 +81,47 @@ Berdasarkan data yang diperoleh terdapat duplicate value sehingga perlu diatasi
 
 ## Model Development
 1. **Content-Based Filtering**:
-   - Menggunakan fitur seperti deskripsi, lokasi, dan jenis wisata.
-   - Menggunakan teknik TF-IDF atau word embeddings untuk merepresentasikan teks deskriptif.
-   - Menghitung kemiripan antar destinasi menggunakan cosine similarity atau teknik lain.
+   Model menggunakan metode content based filtering dengan TfidfVectorizer untuk menghitung cosine similiarity
+   
+### Cara Kerja 
+1. Ekstraksi Fitur dari Item
+
+Dalam tahap ini penulis menggunakan TfidVectorizer untuk mengekstrak fitur yang ada dalam konteks ini fitur yang diekstrak berupa atribut city_category 
+
+2. Pembuatan Profil Pengguna
+
+Dalam tahap ini penulis membentuk profil pengguna berdasarkan fitur yang diekstrak tadi dalam bentuk matrix yang disebut tfidf_matrix
+
+3. Pencarian Item Serupa
+
+Setelah profil pengguna dibuat, sistem akan membandingkan fitur-fitur dari item baru dengan profil pengguna. Sistem menghitung kesamaan antara item baru dan item yang disukai sebelumnya dengan metode cosine similiarity
+
+4. Perekomendasian Item
+Berdasarkan cosine similiarity tersebutlah, pengguna mendapatkan rekomendasi item berdasarkan kemiripan item yang telah dikonsumsi.
 
 2. **Collaborative Filtering**:
-   - Model berbasis matriks pengguna-destinasi menggunakan pendekatan **matrix factorization** seperti SVD atau ALS.
-   - Alternatif: menggunakan **neural collaborative filtering**.
+   Model menggunakan metode collaborative filtering dengan deep learning tensorflow
+   
+### Cara Kerja 
+1. Encoding fitur yang non numerik
 
-3. **Hybrid Model**:
-   - Menggabungkan kedua model di atas dengan bobot tertentu untuk menghasilkan rekomendasi final.
+Dalam tahap ini penulis men-encode fitur yang non numerik menjadi numerik.
+
+2. Split training dan validation untuk data 
+
+Dalam tahap ini penulis melakukan penyebaran untuk data training dan validation berupa 80:20.
+
+3. Pembuatan model deep learning
+
+Dalam tahap ini penulis membuat class model rekomendasi dengan tensorflow.
+
+4. Inisiasi model tersebut
+   
+Dalam tahap ini penulis menginisiasikan model untuk menghitung binarycrossentropy dengan adam optimizer dan metrik rootmeansquared untuk errornya.
+
+5. Melakukan Training Model
+   
+Dalam tahap ini penulis melakukan training untuk model
 
 ## Evaluasi Model
 Evaluasi model dilakukan dengan metrik berikut:
