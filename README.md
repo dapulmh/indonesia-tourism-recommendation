@@ -7,12 +7,12 @@ Pariwisata adalah sektor penting dalam perekonomian Indonesia. Dengan keberagama
 Tujuan utama proyek ini adalah untuk membantu wisatawan dalam memilih destinasi wisata yang sesuai dengan preferensi mereka. Dengan menggunakan sistem rekomendasi berbasis konten (content-based) dan filter kolaboratif (collaborative filtering), pengguna akan mendapatkan rekomendasi destinasi yang dipersonalisasi berdasarkan data perilaku mereka atau kesamaan dengan pengguna lain.
 
 ## Problem Statement
-- Bagaimana cara membangun sistem rekomendasi yang dapat memberikan rekomendasi destinasi wisata di Indonesia secara personal?
-- Bagaimana meningkatkan akurasi rekomendasi dengan menggabungkan content-based filtering dan collaborative filtering?
-- Bagaimana memanfaatkan data wisata yang tersedia untuk mengembangkan sistem rekomendasi yang relevan dan akurat?
+- Bagaimana cara membangun dan merekomendasikan destinasi wisata berdasarkan kemiripan destinasi wisata pengguna menggunakan content based filtering?
+- Bagaimana cara membangun dan merekomendasikan destinasi wisata berdasarkan kesamaan preferensi dengan pengguna lainnya menggunakan content based filtering?
+- Apa jenis rekomendasi terbaik untuk merekomendasikan wisata kepada pengguna?
 
 ## Goals
-- Mengembangkan sistem rekomendasi destinasi wisata berbasis konten dan filter kolaboratif.
+- Mengembangkan sistem rekomendasi destinasi wisata berbasis content based filtering dan collaborative filtering.
 - Meningkatkan kepuasan pengguna dengan memberikan rekomendasi yang relevan berdasarkan preferensi dan riwayat mereka.
 - Menyediakan pengalaman penjelajahan wisata yang lebih personal.
 
