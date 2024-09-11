@@ -82,6 +82,14 @@ Berdasarkan data yang diperoleh terdapat duplicate value sehingga perlu diatasi
 
 - Mengurutkan urutan data dalam dataset berdasarkan id secara  ASCENDING
 
+- Melakukan Encoding untuk User_Id dan Place_Id
+
+- Melakukan feature engineering dengan menggabungkan category dan city untuk variabel baru berupa city_category
+
+- Tetapkan jumlah user, jumlah destinasi wisata, minimum rating, dan maksimal rating untuk kebutuhan split training¶
+
+- Melakukan split untuk training dan validation sebesar 80:20
+
 ## Model Development
 1. **Content-Based Filtering**:
    Model menggunakan metode content based filtering dengan TfidfVectorizer untuk menghitung cosine similiarity
@@ -106,42 +114,50 @@ Parameter yang digunakan dalam proyek ini berupa fitur city_category lalu fitur 
 
 2. **Collaborative Filtering**:
    Model menggunakan metode collaborative filtering dengan deep learning tensorflow
-   
+
+### Hasil Rekomendasi Content Based Filtering
+
+![Screenshot 2024-09-11 153430](https://github.com/user-attachments/assets/7f17532b-c805-486b-a2ae-1bb31cfcbd8a)
+
 ### Cara Kerja 
-1. Encoding fitur yang non numerik
+1. Pengumpulan Data Interaksi
+Sistem mengumpulkan data interaksi antara pengguna dan item. Ini bisa berupa rating, ulasan, atau perilaku eksplisit lain seperti menonton, membeli, atau mengklik item.
+Data tersebut biasanya disusun dalam bentuk matriks yang dikenal dengan user-item matrix, di mana baris mewakili pengguna dan kolom mewakili item. Setiap sel berisi nilai interaksi (rating atau klik).
 
-Dalam tahap ini penulis men-encode fitur yang non numerik menjadi numerik.
+2. Mengukur Kesamaan
+Langkah selanjutnya adalah menghitung tingkat kesamaan antara pengguna (untuk user-based) 
+Beberapa metrik yang umum digunakan untuk mengukur kesamaan:
+- Cosine similarity: Mengukur sudut antara dua vektor.
+- Pearson correlation: Mengukur hubungan linier antara rating pengguna/item.
+- Jaccard similarity: Mengukur kesamaan antara dua set.
 
-2. Split training dan validation untuk data 
+3. Prediksi Rating atau Preferensi
+Berdasarkan pengguna serupa (untuk user-based), sistem akan memprediksi rating atau preferensi pengguna untuk item yang belum mereka evaluasi.
 
-Dalam tahap ini penulis melakukan penyebaran untuk data training dan validation berupa 80:20.
-
-3. Pembuatan model deep learning
-
-Dalam tahap ini penulis membuat class model rekomendasi dengan tensorflow.
-
-4. Inisiasi model tersebut
-   
-Dalam tahap ini penulis menginisiasikan model untuk menghitung binarycrossentropy dengan adam optimizer dan metrik rootmeansquared untuk errornya.
-
-5. Melakukan Training Model
-   
-Dalam tahap ini penulis melakukan training untuk model
+4. Rekomendasi Item
+Setelah sistem memprediksi preferensi atau rating untuk item yang belum dievaluasi oleh pengguna, item dengan nilai prediksi tertinggi direkomendasikan kepada pengguna.
 
 Parameter yang digunakan dalam proyek ini berupa fitur city_category lalu fitur tersebut direpresentasikan menggunakan tf-idf dan metode mengukur kesamaannya menggunakan cosine similiarity (mengukur sudut antara 2 vektor) 
+
+### Hasil Rekomendasi Collaborative Filtering
+
+![Screenshot 2024-09-11 153445](https://github.com/user-attachments/assets/61ffc28c-d83d-4dee-b015-e6c3d81f8963)
 
 ## Evaluasi Model
 Evaluasi model dilakukan dengan metrik berikut:
 - **Root Mean Squared Error (MSE)** Mengukur akar rata-rata dari erorr untuk collaborative filtering.
-- **Accuracy**: Untuk melihat akurasi content based filtering
+- **Precision**: Metrik evaluasi yang mengukur seberapa akurat prediksi yang relevan dibandingkan keseluruhan prediksi
 
 Model akan diuji pada data validasi untuk melihat performa dan melakukan tuning pada parameter model untuk hasil terbaik.
 
 ### Hasil Evaluasi Content Based Filtering
 
-![Screenshot 2024-09-11 111327](https://github.com/user-attachments/assets/41834c2c-d134-4351-ab36-7897f27e0ab0)
+Precision=i/r
 
-Bisa dilihat rekomendasi wisat yang paling similiar dengan Taman Legenda keong emas adalah daftar diatas dan dari ke 5 hasil rekomendasi sesuai dengan city_category Taman Legenda Keong Emas sehingga accuracy 100 %¶
+r= total rekomendasi yang relevan
+i= jumlah rekomendasi benar yang diberikan
+
+Dari hasil rekomendasi content based filtering diatas dapat dilihat bahwa Taman Legenda Keong Emas masuk dalam city_category berupa Jakarta Taman Hiburan dan hasil rekomendasi menunjuk semua destinasi wisata yang memiliki city_category yang sama. Hal ini menunjukkan bahwa hasil evaluasi berupa precision dari content based filtering adalah 5/5 = 100%
 
 ### Hasil Evaluasi Collaborative Filtering
 
