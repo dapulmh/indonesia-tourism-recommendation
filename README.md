@@ -125,11 +125,15 @@ Dalam tahap ini penulis melakukan training untuk model
 
 ## Evaluasi Model
 Evaluasi model dilakukan dengan metrik berikut:
-- **Mean Squared Error (MSE)** untuk collaborative filtering.
-- **Precision, Recall, dan F1-Score** untuk menilai relevansi rekomendasi.
-- **Hit Rate**: seberapa sering destinasi yang direkomendasikan sesuai dengan pilihan pengguna.
+- **Root Mean Squared Error (MSE)** Mengukur akar rata-rata dari erorr untuk collaborative filtering.
+- **Accuracy**: Untuk melihat akurasi content based filtering
 
 Model akan diuji pada data validasi untuk melihat performa dan melakukan tuning pada parameter model untuk hasil terbaik.
 
+## Jawaban Dari Problem Statement 
+1. Berikut merupakan hasil dari rekomendasi content based filtering :
+2. Berikut merupakan hasil dari rekomendasi collaborative filtering :
+3. Sebenarnya kedua metode rekomendasi saling melengkapi dan memiliki tujuan berbeda dimana content based filtering lebih ke karakteristik komponen item yang telah disukai pengguna sesuai riwayatnya sedangkan collaborative learning lebih ke mencari preferensi pengguna terhadap pengguna lainnya yang serupa sehingga keduanya saling melengkapi.
+4.  
 ## Kesimpulan
 Proyek ini bertujuan untuk membangun sistem rekomendasi destinasi wisata Indonesia yang personal, menggabungkan content-based dan collaborative filtering untuk memberikan rekomendasi yang relevan dan akurat. Dengan solusi ini, diharapkan wisatawan dapat lebih mudah menemukan destinasi yang sesuai dengan minat mereka, sehingga meningkatkan kepuasan dan minat berwisata di Indonesia.
