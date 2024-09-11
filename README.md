@@ -130,10 +130,26 @@ Evaluasi model dilakukan dengan metrik berikut:
 
 Model akan diuji pada data validasi untuk melihat performa dan melakukan tuning pada parameter model untuk hasil terbaik.
 
+### Hasil Evaluasi Content Based Filtering
+
+![Screenshot 2024-09-11 111327](https://github.com/user-attachments/assets/41834c2c-d134-4351-ab36-7897f27e0ab0)
+
+Bisa dilihat rekomendasi wisat yang paling similiar dengan Taman Legenda keong emas adalah daftar diatas dan dari ke 5 hasil rekomendasi sesuai dengan city_category Taman Legenda Keong Emas sehingga accuracy 100 %¶
+
+### Hasil Evaluasi Collaborative Filtering
+
+![__results___82_0](https://github.com/user-attachments/assets/54591650-c376-4bc2-9172-08c114149bf6)
+
 ## Jawaban Dari Problem Statement 
 1. Berikut merupakan hasil dari rekomendasi content based filtering :
+
+![Screenshot 2024-09-11 111327](https://github.com/user-attachments/assets/41834c2c-d134-4351-ab36-7897f27e0ab0)
+
 2. Berikut merupakan hasil dari rekomendasi collaborative filtering :
+
+![Screenshot 2024-09-11 111535](https://github.com/user-attachments/assets/871ff99a-0cd6-4489-ace5-3a678696bb4b)
+
 3. Sebenarnya kedua metode rekomendasi saling melengkapi dan memiliki tujuan berbeda dimana content based filtering lebih ke karakteristik komponen item yang telah disukai pengguna sesuai riwayatnya sedangkan collaborative learning lebih ke mencari preferensi pengguna terhadap pengguna lainnya yang serupa sehingga keduanya saling melengkapi.
-4.  
+
 ## Kesimpulan
 Proyek ini bertujuan untuk membangun sistem rekomendasi destinasi wisata Indonesia yang personal, menggabungkan content-based dan collaborative filtering untuk memberikan rekomendasi yang relevan dan akurat. Dengan solusi ini, diharapkan wisatawan dapat lebih mudah menemukan destinasi yang sesuai dengan minat mereka, sehingga meningkatkan kepuasan dan minat berwisata di Indonesia.
