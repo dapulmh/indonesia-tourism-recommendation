@@ -8,7 +8,7 @@ Tujuan utama proyek ini adalah untuk membantu wisatawan dalam memilih destinasi 
 
 ## Problem Statement
 - Bagaimana cara membangun dan merekomendasikan destinasi wisata berdasarkan kemiripan destinasi wisata pengguna menggunakan content based filtering?
-- Bagaimana cara membangun dan merekomendasikan destinasi wisata berdasarkan kesamaan preferensi dengan pengguna lainnya menggunakan content based filtering?
+- Bagaimana cara membangun dan merekomendasikan destinasi wisata berdasarkan kesamaan preferensi dengan pengguna lainnya menggunakan collaborative filtering?
 - Apa jenis rekomendasi terbaik untuk merekomendasikan wisata kepada pengguna?
 
 ## Goals
@@ -40,6 +40,8 @@ tourism_with_id.csv
 11. Long : Posisi bujur dalam destinasi wisata
 12. Unnamed: 11 : Tidak diketahui
 13. Unnamed: 12 : Tidak diketahui
+
+Ukuran : 437 baris dengan 13 kolom
     
 Link Dataset : https://www.kaggle.com/datasets/aprabowo/indonesia-tourism-destination?select=tourism_with_id.csv
 
@@ -48,6 +50,7 @@ tourism_rating.csv
 2. Place_Id : Id destinasi wisata
 3. Place_Ratings : Rating yang diberikan user
 
+Ukuran : 10000 baris dengan 3 kolom atribut
 Link Dataset : https://www.kaggle.com/datasets/aprabowo/indonesia-tourism-destination?select=tourism_rating.csv
 
 Kondisi kedua dataset :
@@ -99,6 +102,8 @@ Setelah profil pengguna dibuat, sistem akan membandingkan fitur-fitur dari item 
 4. Perekomendasian Item
 Berdasarkan cosine similiarity tersebutlah, pengguna mendapatkan rekomendasi item berdasarkan kemiripan item yang telah dikonsumsi.
 
+Parameter yang digunakan dalam proyek ini berupa fitur city_category lalu fitur tersebut direpresentasikan menggunakan tf-idf dan metode mengukur kesamaannya menggunakan cosine similiarity (mengukur sudut antara 2 vektor)  
+
 2. **Collaborative Filtering**:
    Model menggunakan metode collaborative filtering dengan deep learning tensorflow
    
@@ -122,6 +127,8 @@ Dalam tahap ini penulis menginisiasikan model untuk menghitung binarycrossentrop
 5. Melakukan Training Model
    
 Dalam tahap ini penulis melakukan training untuk model
+
+Parameter yang digunakan dalam proyek ini berupa fitur city_category lalu fitur tersebut direpresentasikan menggunakan tf-idf dan metode mengukur kesamaannya menggunakan cosine similiarity (mengukur sudut antara 2 vektor) 
 
 ## Evaluasi Model
 Evaluasi model dilakukan dengan metrik berikut:
