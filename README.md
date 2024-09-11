@@ -65,24 +65,19 @@ Sehingga dataset akhir yang digunakan menjadi:
 
 dimana atribut city_category adalah atribut yang dilihat kemiripannya untuk contet destinasi wisata.
 
-## Exploratory Data Analysis (EDA)
-EDA akan dilakukan untuk:
-- Memahami distribusi data destinasi, pengguna, dan interaksi.
-- Menganalisis pola preferensi pengguna terhadap jenis wisata.
-- Mengidentifikasi fitur penting dari destinasi yang mempengaruhi rating.
-- Menilai apakah terdapat bias dalam data, misalnya destinasi yang sering dikunjungi versus yang jarang.
-
-Contoh visualisasi dalam EDA:
-- Distribusi rating per destinasi.
-- Popularitas destinasi berdasarkan jumlah kunjungan.
-- Hubungan antara jenis destinasi dan rating.
-
 ## Data Preparation
 Langkah-langkah persiapan data:
-- Membersihkan data yang hilang atau tidak konsisten.
-- Menormalisasi data destinasi berdasarkan fitur deskriptif.
-- Membagi data menjadi set pelatihan dan pengujian.
-- Menyusun matriks pengguna-destinasi untuk collaborative filtering.
+- Merge Dataset : Mengintegrasikan dan menggabungkan kedua dataset sehingga menjadi satu dataset
+
+- Missing Values: Penanganan data yang hilang dengan dengan menghilangkan data.
+
+Berdasarkan data yang diperoleh tidak terdapat missing value sehingga tidak perlu diatasi
+
+- Duplicate Values : Penanganan data yang duplikat dengan menghilangkan data.
+
+Berdasarkan data yang diperoleh terdapat duplicate value sehingga perlu diatasi
+
+- Mengurutkan urutan data dalam dataset berdasarkan id secara  ASCENDING
 
 ## Model Development
 1. **Content-Based Filtering**:
