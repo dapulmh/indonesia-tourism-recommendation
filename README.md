@@ -82,7 +82,11 @@ Berdasarkan data yang diperoleh terdapat duplicate value sehingga perlu diatasi
 
 - Mengurutkan urutan data dalam dataset berdasarkan id secara  ASCENDING
 
+Pengurutan data dalam dataset ini akan mempermudah dalam membangun model content based filtering dan collaborative filtering
+
 - Melakukan Encoding untuk User_Id dan Place_Id
+
+Proses encoding baik untuk User_Id dan Place_Id 
 
 - Melakukan feature engineering dengan menggabungkan category dan city untuk variabel baru berupa city_category
 
