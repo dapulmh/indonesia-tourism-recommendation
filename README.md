@@ -86,13 +86,19 @@ Pengurutan data dalam dataset ini akan mempermudah dalam membangun model content
 
 - Melakukan Encoding untuk User_Id dan Place_Id
 
-Proses encoding baik untuk User_Id dan Place_Id 
+Proses encoding baik untuk User_Id dan Place_Id dilakukan untuk mengubah data mentah menjadi representasi numerik dan setiap representasinya disimpan dalam suatu dictionary
 
 - Melakukan feature engineering dengan menggabungkan category dan city untuk variabel baru berupa city_category
 
-- Tetapkan jumlah user, jumlah destinasi wisata, minimum rating, dan maksimal rating untuk kebutuhan split training¶
+Proses feature engineering ini dilakukan karena atribut category dan city adalah atribut yang bisa merepresentasikan item destinasi wisata sehingga kita memerlukan atribut tersebut untuk mengukur cosine similiarity-nya.
+
+- Tetapkan jumlah user, jumlah destinasi wisata, minimum rating, dan maksimal rating untuk kebutuhan split training
+
+Penetapan jumlah user, destinasi wisata, minimum rating, dan maksimal rating ini dilakukan untuk kebutuhan class recommenderNet sehingga penulis dapat membangun model recommendation untuk collaborative filtering 
 
 - Melakukan split untuk training dan validation sebesar 80:20
+
+Proses split data training dan validation ini bertujuan untuk membagi data untuk proses training (melatih data yang sudah ada) dan validation model (melatih data baru) sehingga menghasilkan akurasi yang minim bias dan tidak overfitting
 
 ## Model Development
 1. **Content-Based Filtering**:
@@ -116,12 +122,12 @@ Berdasarkan cosine similiarity tersebutlah, pengguna mendapatkan rekomendasi ite
 
 Parameter yang digunakan dalam proyek ini berupa fitur city_category lalu fitur tersebut direpresentasikan menggunakan tf-idf dan metode mengukur kesamaannya menggunakan cosine similiarity (mengukur sudut antara 2 vektor)  
 
-2. **Collaborative Filtering**:
-   Model menggunakan metode collaborative filtering dengan deep learning tensorflow
-
 ### Hasil Rekomendasi Content Based Filtering
 
 ![Screenshot 2024-09-11 153430](https://github.com/user-attachments/assets/7f17532b-c805-486b-a2ae-1bb31cfcbd8a)
+
+2. **Collaborative Filtering**:
+   Model menggunakan metode collaborative filtering dengan deep learning tensorflow
 
 ### Cara Kerja 
 1. Pengumpulan Data Interaksi
@@ -166,6 +172,8 @@ Dari hasil rekomendasi content based filtering diatas dapat dilihat bahwa Taman 
 ### Hasil Evaluasi Collaborative Filtering
 
 ![__results___82_0](https://github.com/user-attachments/assets/54591650-c376-4bc2-9172-08c114149bf6)
+
+Dari hasil evaluasi collaborative filtering diatas dapat dilihat bahwa root mean squared error untuk training setiap epochs-nya selalu turun akan tetapi root mean squared error untuk validation error-nya terjadi peningkatan sedikit akan tetapi tidak signifikan. Hal ini dapat dikatakan bahwa model mengalami sedikit overfitting akan tetapi secara hasil rekomendasi sudah memuaskan.
 
 ## Jawaban Dari Problem Statement 
 1. Berikut merupakan hasil dari rekomendasi content based filtering :
