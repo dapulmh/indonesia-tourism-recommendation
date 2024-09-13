@@ -110,7 +110,7 @@ TfidfVectorizer dalam content-based filtering adalah teknik yang digunakan untuk
 
 - Term Frequency (TF): Mengukur seberapa sering kata muncul dalam dokumen.
 - Inverse Document Frequency (IDF): Mengurangi bobot kata yang sering muncul di banyak dokumen (misalnya, kata umum seperti "dan", "adalah").
-- 
+
 Dalam content-based filtering, TfidfVectorizer digunakan untuk menghitung vektor fitur dari deskripsi item (misalnya, destinasi wisata), sehingga sistem dapat merekomendasikan item dengan deskripsi serupa kepada pengguna berdasarkan preferensi item yang pernah mereka sukai.
 
 ### Cosine Similiarity
