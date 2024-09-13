@@ -103,51 +103,37 @@ Proses split data training dan validation ini bertujuan untuk membagi data untuk
 ## Model Development
 1. **Content-Based Filtering**:
    Model menggunakan metode content based filtering dengan TfidfVectorizer untuk menghitung cosine similiarity
-   
-### Cara Kerja 
-1. Ekstraksi Fitur dari Item
 
-Dalam tahap ini penulis menggunakan TfidVectorizer untuk mengekstrak fitur yang ada dalam konteks ini fitur yang diekstrak berupa atribut city_category 
+### TfidVectorizer
 
-2. Pembuatan Profil Pengguna
+TfidfVectorizer dalam content-based filtering adalah teknik yang digunakan untuk mengubah teks (misalnya deskripsi objek) menjadi representasi numerik berdasarkan frekuensi kata. TF-IDF (Term Frequency-Inverse Document Frequency) menghitung seberapa penting suatu kata dalam sebuah dokumen relatif terhadap semua dokumen.
 
-Dalam tahap ini penulis membentuk profil pengguna berdasarkan fitur yang diekstrak tadi dalam bentuk matrix yang disebut tfidf_matrix
+- Term Frequency (TF): Mengukur seberapa sering kata muncul dalam dokumen.
+- Inverse Document Frequency (IDF): Mengurangi bobot kata yang sering muncul di banyak dokumen (misalnya, kata umum seperti "dan", "adalah").
+- 
+Dalam content-based filtering, TfidfVectorizer digunakan untuk menghitung vektor fitur dari deskripsi item (misalnya, destinasi wisata), sehingga sistem dapat merekomendasikan item dengan deskripsi serupa kepada pengguna berdasarkan preferensi item yang pernah mereka sukai.
 
-3. Pencarian Item Serupa
+### Cosine Similiarity
 
-Setelah profil pengguna dibuat, sistem akan membandingkan fitur-fitur dari item baru dengan profil pengguna. Sistem menghitung kesamaan antara item baru dan item yang disukai sebelumnya dengan metode cosine similiarity
+Cosine similarity dalam content-based filtering adalah metode untuk mengukur kesamaan antara dua vektor (misalnya, item yang direpresentasikan sebagai vektor fitur seperti TF-IDF). Cosine similarity menghitung sudut kosinus antara dua vektor dalam ruang dimensi, di mana nilai 1 berarti sangat mirip (arah vektor sama) dan 0 berarti tidak ada kesamaan (vektor tegak lurus).
 
-4. Perekomendasian Item
-Berdasarkan cosine similiarity tersebutlah, pengguna mendapatkan rekomendasi item berdasarkan kemiripan item yang telah dikonsumsi.
-
-Parameter yang digunakan dalam proyek ini berupa fitur city_category lalu fitur tersebut direpresentasikan menggunakan tf-idf dan metode mengukur kesamaannya menggunakan cosine similiarity (mengukur sudut antara 2 vektor)  
+Dalam content-based filtering, cosine similarity digunakan untuk membandingkan kesamaan antara item (misalnya, city_category dua destinasi wisata) dan merekomendasikan item yang paling mirip dengan preferensi pengguna.
 
 ### Hasil Rekomendasi Content Based Filtering
 
 ![Screenshot 2024-09-11 153430](https://github.com/user-attachments/assets/7f17532b-c805-486b-a2ae-1bb31cfcbd8a)
 
 2. **Collaborative Filtering**:
-   Model menggunakan metode collaborative filtering dengan deep learning tensorflow
+   Model menggunakan metode collaborative filtering dengan deep learning tensorflow dalam bentuk class RecommenderNET
 
-### Cara Kerja 
-1. Pengumpulan Data Interaksi
-Sistem mengumpulkan data interaksi antara pengguna dan item. Ini bisa berupa rating, ulasan, atau perilaku eksplisit lain seperti menonton, membeli, atau mengklik item.
-Data tersebut biasanya disusun dalam bentuk matriks yang dikenal dengan user-item matrix, di mana baris mewakili pengguna dan kolom mewakili item. Setiap sel berisi nilai interaksi (rating atau klik).
+### Class RecommenderNET
 
-2. Mengukur Kesamaan
-Langkah selanjutnya adalah menghitung tingkat kesamaan antara pengguna (untuk user-based) 
-Beberapa metrik yang umum digunakan untuk mengukur kesamaan:
-- Cosine similarity: Mengukur sudut antara dua vektor.
-- Pearson correlation: Mengukur hubungan linier antara rating pengguna/item.
-- Jaccard similarity: Mengukur kesamaan antara dua set.
+Class RecommenderNet adalah model neural network untuk collaborative filtering. Model ini memetakan user dan destinasi wisata ke dalam vektor embedding, yang digunakan untuk menghitung kesamaan (dot product) antara user dan destinasi.
 
-3. Prediksi Rating atau Preferensi
-Berdasarkan pengguna serupa (untuk user-based), sistem akan memprediksi rating atau preferensi pengguna untuk item yang belum mereka evaluasi.
-
-4. Rekomendasi Item
-Setelah sistem memprediksi preferensi atau rating untuk item yang belum dievaluasi oleh pengguna, item dengan nilai prediksi tertinggi direkomendasikan kepada pengguna.
-
-Parameter yang digunakan dalam proyek ini berupa fitur city_category lalu fitur tersebut direpresentasikan menggunakan tf-idf dan metode mengukur kesamaannya menggunakan cosine similiarity (mengukur sudut antara 2 vektor) 
+- Layer Embedding: Mengubah user dan destinasi wisata menjadi vektor berukuran lebih kecil.
+- Bias: Menambahkan bias spesifik untuk user dan destinasi.
+- Dropout: Mengurangi overfitting.
+- dot_user_tourism: Hasil dot product ditambah bias, kemudian diaktifkan dengan fungsi sigmoid untuk memberikan skor rekomendasi.
 
 ### Hasil Rekomendasi Collaborative Filtering
 
